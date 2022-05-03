@@ -5,11 +5,15 @@ export const modals = () => {
 			close = document.querySelector(closeSelector),
 			scroll = calcScroll();
 
+		let previousActiveElement;
+
 		triggers.forEach((trigger) => {
 			trigger.addEventListener("click", (e) => {
 				if (e.target) {
 					e.preventDefault();
 				}
+
+				previousActiveElement = document.activeElement;
 
 				modal.style.display = "block";
 				modal.querySelector("input").focus();
@@ -22,6 +26,7 @@ export const modals = () => {
 			modal.style.display = "none";
 			document.body.classList.remove("modal-open");
 			document.body.style.marginRight = `0px`;
+			previousActiveElement.focus();
 		};
 
 		close.addEventListener("click", () => {

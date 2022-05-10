@@ -399,14 +399,19 @@ textarea:focus {
 	font-size: 1.8rem;
 	font-weight: 600;
 	text-decoration: underline;
-	/*&:focus {
-				text-decoration: none;
-				color: #454545;
-			}*/
+}
+
+.glazing_block a:focus {
+	text-decoration: none;
+	color: #333333;
 }
 
 .glazing_block a:hover {
 	cursor: pointer;
+}
+
+.glazing_active {
+	text-decoration: underline;
 }
 
 .glazing_cold {

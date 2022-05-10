@@ -6,7 +6,7 @@ import { feedback } from "./modules/forms";
 window.addEventListener("DOMContentLoaded", () => {
 	"use strict";
 	modals();
-
+  
 	tabs({
 		headerSelector: ".glazing_slider",
 		tabSelector: ".glazing_block",
@@ -20,6 +20,6 @@ window.addEventListener("DOMContentLoaded", () => {
 		contentSelector: ".decoration_content > div > div",
 		activeClass: "after_click",
 	});
-
+  
 	feedback();
 });

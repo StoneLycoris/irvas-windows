@@ -26,21 +26,33 @@ export const tabs = ({
 	hideTabContent();
 	showTabContent();
 
+	const changeTabContent = (e) => {
+		if (e) {
+			const target = e.target;
+			if (
+				target &&
+				(target.classList.contains(tabSelector.replace(/\./, "")) ||
+					target.parentNode.classList.contains(
+						tabSelector.replace(/\./, "")
+					))
+			) {
+				tabs.forEach((tab, index) => {
+					if (target === tab || target.parentNode === tab) {
+						hideTabContent();
+						showTabContent(index);
+					}
+				});
+			}
+		}
+	};
+
 	header.addEventListener("click", (e) => {
-		const target = e.target;
-		if (
-			target &&
-			(target.classList.contains(tabSelector.replace(/\./, "")) ||
-				target.parentNode.classList.contains(
-					tabSelector.replace(/\./, "")
-				))
-		) {
-			tabs.forEach((tab, index) => {
-				if (target === tab || target.parentNode === tab) {
-					hideTabContent();
-					showTabContent(index);
-				}
-			});
+		changeTabContent(e);
+	});
+
+	header.addEventListener("keydown", (e) => {
+		if (e.key === "Enter") {
+			changeTabContent(e);
 		}
 	});
 };

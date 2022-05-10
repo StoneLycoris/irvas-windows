@@ -8,7 +8,7 @@ window.addEventListener("DOMContentLoaded", () => {
 		headerSelector: ".glazing_slider",
 		tabSelector: ".glazing_block",
 		contentSelector: ".glazing_content",
-		activeClass: "active",
+		activeClass: "glazing_active",
 	});
 	tabs({
 		headerSelector: ".decoration_slider",

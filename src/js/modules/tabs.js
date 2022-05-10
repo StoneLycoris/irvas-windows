@@ -1,9 +1,9 @@
-export const tabs = (
+export const tabs = ({
 	headerSelector,
 	tabSelector,
 	contentSelector,
-	activeClass
-) => {
+	activeClass,
+}) => {
 	const header = document.querySelector(headerSelector),
 		tabs = document.querySelectorAll(tabSelector),
 		contents = document.querySelectorAll(contentSelector);
@@ -18,9 +18,9 @@ export const tabs = (
 		});
 	};
 
-	const showTabContent = (i = 0) => {
-		contents[i].style.display = "block";
-		tabs[i].classList.add(activeClass);
+	const showTabContent = (index = 0) => {
+		contents[index].style.display = "block";
+		tabs[index].classList.add(activeClass);
 	};
 
 	hideTabContent();
@@ -35,10 +35,10 @@ export const tabs = (
 					tabSelector.replace(/\./, "")
 				))
 		) {
-			tabs.forEach((tab, i) => {
+			tabs.forEach((tab, index) => {
 				if (target === tab || target.parentNode === tab) {
 					hideTabContent();
-					showTabContent(i);
+					showTabContent(index);
 				}
 			});
 		}

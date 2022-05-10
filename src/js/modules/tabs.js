@@ -27,9 +27,7 @@ export const tabs = ({
 	showTabContent();
 
 	const changeTabContent = (e) => {
-		if (!e) {
-			return;
-		} else {
+		if (e) {
 			const target = e.target;
 			if (
 				target &&

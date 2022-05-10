@@ -883,6 +883,9 @@ textarea:focus {
 }
 
 /*Modals*/
+label {
+	width: 100%;
+}
 .popup,
 .popup_engineer,
 .popup_calc_end {

@@ -16,16 +16,7 @@ export const modals = () => {
 			scroll = calcScroll();
 
 		let previousActiveElement;
-
-		const checkBoxes = document.querySelectorAll(".checkbox-custom");
-
-		checkBoxes.forEach((checkBox) => {
-			checkBox.addEventListener("keydown", (e) => {
-				if (e.key === "Enter") {
-					checkBox.checked = true;
-				}
-			});
-		});
+		
 
 		triggers.forEach((trigger) => {
 			trigger.addEventListener("click", (e) => {

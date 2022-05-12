@@ -1088,7 +1088,17 @@ label {
 }
 
 .popup_calc_profile_content .checkbox {
-	display: none;
+	border: 0;
+	clip: rect(0 0 0 0);
+	-webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+	clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	white-space: nowrap;
 }
 
 .popup_calc_profile_content .checkbox-custom {
@@ -1103,6 +1113,10 @@ label {
 .popup_calc_profile_content .label {
 	display: inline-block;
 	vertical-align: middle;
+}
+
+.popup_calc_profile_content .checkbox:focus + .checkbox-custom {
+	outline: 2px solid rgb(76, 140, 236);
 }
 
 .popup_calc_profile_content .checkbox:checked + .checkbox-custom::before {

@@ -24,9 +24,7 @@ export const modals = () => {
 					e.preventDefault();
 				}
 
-				windows.forEach((window) => {
-					window.style.display = "none";
-				});
+				windows.forEach(window => window.style.display = "none");
 
 				previousActiveElement = document.activeElement;
 
@@ -38,9 +36,7 @@ export const modals = () => {
 		});
 
 		const closeModal = () => {
-			windows.forEach((window) => {
-				window.style.display = "none";
-			});
+			windows.forEach(window => window.style.display = "none");
 			modal.style.display = "none";
 			document.body.classList.remove("modal-open");
 			document.body.style.marginRight = `0px`;

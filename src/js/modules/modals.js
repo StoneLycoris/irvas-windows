@@ -1,17 +1,37 @@
 export const modals = () => {
-	const bindModal = (triggerSelector, modalSelector, closeSelector) => {
+	const bindModal = ({
+		triggerSelector,
+		modalSelector,
+		closeSelector,
+		closeClickOverlay = true,
+	}) => {
 		const triggers = document.querySelectorAll(triggerSelector),
 			modal = document.querySelector(modalSelector),
 			close = document.querySelector(closeSelector),
+			windows = document.querySelectorAll("[data-modal]"),
 			scroll = calcScroll();
 
 		let previousActiveElement;
+
+		const checkBoxes = document.querySelectorAll(".checkbox-custom");
+
+		checkBoxes.forEach((checkBox) => {
+			checkBox.addEventListener("keydown", (e) => {
+				if (e.key === "Enter") {
+					checkBox.checked = true;
+				}
+			});
+		});
 
 		triggers.forEach((trigger) => {
 			trigger.addEventListener("click", (e) => {
 				if (e.target) {
 					e.preventDefault();
 				}
+
+				windows.forEach((window) => {
+					window.style.display = "none";
+				});
 
 				previousActiveElement = document.activeElement;
 
@@ -23,6 +43,9 @@ export const modals = () => {
 		});
 
 		const closeModal = () => {
+			windows.forEach((window) => {
+				window.style.display = "none";
+			});
 			modal.style.display = "none";
 			document.body.classList.remove("modal-open");
 			document.body.style.marginRight = `0px`;
@@ -34,7 +57,7 @@ export const modals = () => {
 		});
 
 		modal.addEventListener("click", (e) => {
-			if (e.target === modal) {
+			if (e.target === modal && closeClickOverlay) {
 				closeModal();
 			}
 		});
@@ -70,13 +93,37 @@ export const modals = () => {
 		return scrollWidth;
 	};
 
-	bindModal(
-		".popup_engineer_btn",
-		".popup_engineer",
-		".popup_engineer .popup_close"
-	);
+	bindModal({
+		triggerSelector: ".popup_engineer_btn",
+		modalSelector: ".popup_engineer",
+		closeSelector: ".popup_engineer .popup_close",
+	});
 
-	bindModal(".phone_link", ".popup", ".popup .popup_close");
+	bindModal({
+		triggerSelector: ".phone_link",
+		modalSelector: ".popup",
+		closeSelector: ".popup .popup_close",
+	});
+
+	bindModal({
+		triggerSelector: ".popup_calc_btn",
+		modalSelector: ".popup_calc",
+		closeSelector: ".popup_calc_close",
+	});
+
+	bindModal({
+		triggerSelector: ".popup_calc_button",
+		modalSelector: ".popup_calc_profile",
+		closeSelector: ".popup_calc_profile_close",
+		closeClickOverlay: false,
+	});
+
+	bindModal({
+		triggerSelector: ".popup_calc_profile_button",
+		modalSelector: ".popup_calc_end",
+		closeSelector: ".popup_calc_end_close",
+		closeClickOverlay: false,
+	});
 
 	showModalByTime(".popup", 60000);
 };

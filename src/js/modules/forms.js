@@ -26,9 +26,7 @@ export const feedback = () => {
 		return await result.text();
 	};
 
-	const clearInputs = () => {
-		inputs.forEach(input => input.value = "")
-	};
+	const clearInputs = () => inputs.forEach(input => input.value = "");
 
 	forms.forEach((form) => {
 		form.addEventListener("submit", (e) => {

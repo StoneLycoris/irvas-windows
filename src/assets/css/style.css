@@ -1006,6 +1006,9 @@ label {
 	cursor: pointer;
 }
 
+.balcon_icons_img:focus {
+	outline: 2px solid rgb(113, 144, 211);
+}
 .popup_calc_close {
 	position: absolute;
 	top: -2.2rem;
@@ -1085,7 +1088,17 @@ label {
 }
 
 .popup_calc_profile_content .checkbox {
-	display: none;
+	border: 0;
+	clip: rect(0 0 0 0);
+	-webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+	clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	white-space: nowrap;
 }
 
 .popup_calc_profile_content .checkbox-custom {
@@ -1102,6 +1115,10 @@ label {
 	vertical-align: middle;
 }
 
+.popup_calc_profile_content .checkbox:focus + .checkbox-custom {
+	outline: 2px solid rgb(76, 140, 236);
+}
+
 .popup_calc_profile_content .checkbox:checked + .checkbox-custom::before {
 	content: "";
 	display: block;
@@ -1110,6 +1127,10 @@ label {
 	right: 0;
 	bottom: 0;
 	left: 0;
+}
+
+.checkbox-custom:focus {
+	outline: 2px solid rgb(113, 144, 211);
 }
 
 .checkbox-custom[id="cold"]::before {

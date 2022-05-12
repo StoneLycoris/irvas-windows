@@ -4,6 +4,7 @@ export const tabs = ({
 	contentSelector,
 	activeClass,
 	display = "block",
+
 }) => {
 	const header = document.querySelector(headerSelector),
 		tabs = document.querySelectorAll(tabSelector),

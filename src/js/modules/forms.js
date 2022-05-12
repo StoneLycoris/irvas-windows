@@ -27,7 +27,9 @@ export const feedback = () => {
 	};
 
 	const clearInputs = () => {
-		inputs.forEach((input) => (input.value = ""));
+    
+		inputs.forEach(input => input.value = "");
+
 	};
 
 	forms.forEach((form) => {

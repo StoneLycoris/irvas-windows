@@ -1,12 +1,10 @@
 export const modals = () => {
-
 	const bindModal = ({
 		triggerSelector,
 		modalSelector,
 		closeSelector,
 		closeClickOverlay = true,
 	}) => {
-
 		const triggers = document.querySelectorAll(triggerSelector),
 			modal = document.querySelector(modalSelector),
 			close = document.querySelector(closeSelector),
@@ -14,7 +12,6 @@ export const modals = () => {
 			scroll = calcScroll();
 
 		let previousActiveElement;
-		
 
 		triggers.forEach((trigger) => {
 			trigger.addEventListener("click", (e) => {
@@ -22,9 +19,11 @@ export const modals = () => {
 					e.preventDefault();
 				}
 
-				windows.forEach(window => window.style.display = "none");
+				windows.forEach((window) => (window.style.display = "none"));
 
 				previousActiveElement = document.activeElement;
+
+				console.log("previousActiveElement", previousActiveElement);
 
 				modal.style.display = "block";
 				modal.querySelector("input").focus();
@@ -34,11 +33,14 @@ export const modals = () => {
 		});
 
 		const closeModal = () => {
-			windows.forEach(window => window.style.display = "none");
+			windows.forEach((window) => (window.style.display = "none"));
 			modal.style.display = "none";
 			document.body.classList.remove("modal-open");
 			document.body.style.marginRight = `0px`;
-			previousActiveElement.focus();
+			console.log("Close previousActiveElement", previousActiveElement);
+			if (previousActiveElement) {
+				previousActiveElement.focus();
+			}
 		};
 
 		close.addEventListener("click", () => {

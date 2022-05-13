@@ -27,6 +27,7 @@ button:focus,
 input:focus,
 textarea:focus {
 	outline: none;
+	box-shadow: 0 0 0 1px #021377e1, 0 0 1px 2px #015abe;
 }
 
 .no-padding {
@@ -138,7 +139,8 @@ textarea:focus {
 }
 
 .button:focus {
-	border: 3px solid #fc9803;
+	outline: 3px solid #fc9803;
+	box-shadow: 1px 1px 1px #fc9803;
 }
 
 .section_header {
@@ -241,7 +243,8 @@ textarea:focus {
 }
 
 .header_btn:focus {
-	border: 3px solid #1b5502;
+	outline: 3px solid #1b5502;
+	box-shadow: 1px 1px 1px #1b5502;
 }
 
 .header_btn_wrap {
@@ -883,9 +886,15 @@ textarea:focus {
 }
 
 /*Modals*/
+
 label {
 	width: 100%;
 }
+
+.popup_calc label {
+	width: fit-content;
+}
+
 .popup,
 .popup_engineer,
 .popup_calc_end {

@@ -23,8 +23,6 @@ export const modals = () => {
 
 				previousActiveElement = document.activeElement;
 
-				console.log("previousActiveElement", previousActiveElement);
-
 				modal.style.display = "block";
 				modal.querySelector("input").focus();
 				document.body.classList.add("modal-open");
@@ -37,7 +35,6 @@ export const modals = () => {
 			modal.style.display = "none";
 			document.body.classList.remove("modal-open");
 			document.body.style.marginRight = `0px`;
-			console.log("Close previousActiveElement", previousActiveElement);
 			if (previousActiveElement) {
 				previousActiveElement.focus();
 			}
